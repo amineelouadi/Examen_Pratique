@@ -77,4 +77,25 @@ public class ProduitService
             produits.add(produit);
         }
     }
+<<<<<<< HEAD
+ // Méthode pour lire un produit
+    public Produit readProduit(Long id) throws ProduitInexistantException 
+    {
+        Produit foundProduit = null;
+        for (Produit produit : produits) 
+        {
+            if (produit.getId().equals(id)) 
+            {
+                foundProduit = produit;
+                break;
+            }
+        }
+        if (foundProduit == null) 
+        {
+            throw new ProduitInexistantException("Produit inexistant.");
+        }
+        return foundProduit;
+    }
+=======
+>>>>>>> develop
 }
