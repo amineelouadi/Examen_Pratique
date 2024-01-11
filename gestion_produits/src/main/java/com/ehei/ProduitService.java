@@ -77,6 +77,7 @@ public class ProduitService
             produits.add(produit);
         }
     }
+<<<<<<< HEAD
  // Méthode pour lire un produit
     public Produit readProduit(Long id) throws ProduitInexistantException 
     {
@@ -95,4 +96,6 @@ public class ProduitService
         }
         return foundProduit;
     }
+=======
+>>>>>>> develop
 }
