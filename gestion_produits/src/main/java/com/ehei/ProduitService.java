@@ -77,7 +77,7 @@ public class ProduitService
             produits.add(produit);
         }
     }
-<<<<<<< HEAD
+
  // Méthode pour lire un produit
     public Produit readProduit(Long id) throws ProduitInexistantException 
     {
@@ -96,6 +96,18 @@ public class ProduitService
         }
         return foundProduit;
     }
-=======
->>>>>>> develop
+    // Méthode pour mettre à jour un produit
+    public void updateProduit(Produit produit) throws ProduitInexistantException, ValidationDonneesException {
+        // Vérification de l'existence du produit
+        if (!produitExiste(produit.getId())) {
+            throw new ProduitInexistantException("Produit inexistant. Impossible de le mettre à jour.");
+        } else if (produit.getPrix() <= 0 || produit.getQuantite() <= 0) {
+            throw new ValidationDonneesException("Le prix et la quantité doivent être positifs.");
+        } else {
+            // Mise à jour du produit
+            produits.removeIf(p -> p.getId().equals(produit.getId()));
+            produits.add(produit);
+        }
+    }
+
 }
