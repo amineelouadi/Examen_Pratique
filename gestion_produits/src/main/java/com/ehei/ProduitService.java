@@ -109,5 +109,15 @@ public class ProduitService
             produits.add(produit);
         }
     }
+    // Méthode pour supprimer un produit
+    public void deleteProduit(Long id) throws ProduitInexistantException {
+        // Vérification de l'existence du produit
+        if (!produitExiste(id)) {
+            throw new ProduitInexistantException("Produit inexistant. Impossible de le supprimer.");
+        } else {
+            // Suppression du produit
+            produits.removeIf(p -> p.getId().equals(id));
+        }
+    }
 
 }
